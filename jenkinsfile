@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    environment{
+        GOOGLE_APPLICATION_CREDENTIALS="/var/cache/jenkins/gcp-jenkins-project.json"
+        GCLOUD_PATH='/var/jenkins_home/GoogleCloudSDK/google-cloud-sdk/bin/gcloud'
+        GOOGLE_AUTH = credentials('gc-fr-automation')
+    }
+    stages {
+        /*stage(list){
+            steps{
+                sh '$GCLOUD_PATH auth activate-service-account --key-file /var/cache/jenkins/gcp-jenkins-project.json'
+            }
+        }*/
+       stage(test) {
+           steps {
+               sh 'terraform init'
+               sh 'terraform plan'
+           }
+       }
+    }
+ }
