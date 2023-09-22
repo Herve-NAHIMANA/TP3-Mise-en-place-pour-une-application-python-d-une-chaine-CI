@@ -1,10 +1,10 @@
 pipeline {
     agent any
-    environment{
+    /*environment{
         GOOGLE_APPLICATION_CREDENTIALS="/var/cache/jenkins/gcp-jenkins-project.json"
         GCLOUD_PATH='/var/jenkins_home/GoogleCloudSDK/google-cloud-sdk/bin/gcloud'
         GOOGLE_AUTH = credentials('gc-fr-automation')
-    }
+    }*/
     stages {
         /*stage(list){
             steps{

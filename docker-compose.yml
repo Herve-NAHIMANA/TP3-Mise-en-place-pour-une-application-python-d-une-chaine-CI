@@ -1,7 +1,7 @@
 version: '3.6'
 services:
   jenkins:
-    image: 'jenkins/jenkins:latest'
+    image: jenkins/jenkins:lts
     environment:
       JAVA_OPTS: -Djenkins.install.runSetupWizard=false
       JENKINS_OPTS: --argumentsRealm.roles.user=admin --argumentsRealm.passwd.admin=admin --argumentsRealm.roles.admin=admin
@@ -9,7 +9,12 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - './DATA/jenkins:/var/jenkins_home'
+      - ./jenkins/plugins.txt:/usr/share/jenkins/ref/plugins.txt
+      - ./jenkins/jenkinsfile:/var/jenkins_home/workspace/Jenkinsfile
+      - ./jenkins/initial.sh:/usr/share/jenkins/ref/initial.sh
+    command: >
+        bash -c "jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
+        && ./usr/local/bin/jenkins.sh" & /usr/share/jenkins/ref/initial.sh
     networks: 
       - tp_network
 networks:
