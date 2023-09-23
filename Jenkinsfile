@@ -4,11 +4,11 @@ pipeline {
         
     }*/
     stages {
-        /*stage(list){
-            steps{
-                sh '$GCLOUD_PATH auth activate-service-account --key-file /var/cache/jenkins/gcp-jenkins-project.json'
+        stage('Clone repository') {
+            steps {
+                git credentialsId: 'git', url: 'https://github.com/vanessakovalsky/python-api-handle-it'
             }
-        }*/
+        }
        stage(test) {
            steps {
                sh 'echo Test done'
