@@ -8,12 +8,8 @@ services:
       - 8080:8080
     volumes:
       - ./jenkins/plugins.txt:/usr/share/jenkins/ref/plugins.txt
-      - ./jenkins/jenkinsfile:/var/jenkins_home/workspace/Jenkinsfile
-      # - ./jenkins/init-user.sh:/usr/local/bin/init-user.sh
     environment:
       - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
-      #- JENKINS_OPTS=--argumentsRealm.roles.user=admin --argumentsRealm.passwd.admin=admin --argumentsRealm.roles.admin=admin
-      - ADMIN_PASSWORD= "Test123"
     command: >
         bash -c "jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt &&
                 /usr/local/bin/jenkins.sh"
