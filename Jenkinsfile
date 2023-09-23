@@ -11,7 +11,7 @@ pipeline {
         }
        stage(test) {
            steps {
-               sh'cd python-api-handle-it/app/'
+               sh 'cd ./python-api-handle-it/app/'
            }
        }
     }
