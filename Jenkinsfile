@@ -11,7 +11,7 @@ pipeline {
         }
        stage(test) {
            steps {
-               sh 'echo Test done'
+               sh'cd python-api-handle-it/app/'
            }
        }
     }
