@@ -27,48 +27,6 @@ pipeline {
                     }
                 )
              }
-           }
-
-        // stage('testcode') {
-            //  tools {
-            //    gradle 'installGradle'
-            //  }
-        //     steps {
-        //         sh 'gradle test'
-        //     }
-        // }
-        
-        stage('Package and deploy') {
-             tools {
-               gradle 'installGradle'
-             }
-            steps {
-                sh 'gradle up'
-            }
-        }
-
-        stage('Build docker image') {
-            steps{
-               /* script {
-                    docker.build registry + ":$BUILD_NUMBER"
-                } */
-            }       
-        }
-
-        stage('Push Image') {
-            steps{
-                /*script {
-                    docker.withRegistry( '', registryCredential ) {
-                        dockerImage.push("$BUILD_NUMBER")
-                    }
-                }*/
-            }
-        }
-
-        stage('Test image docker') {
-            steps {
-                sh 'docker run -d --name my-image-python -p 3002:3002 --rm vanessakovalsky/my-image-python'
-            }
-        }
+           }    
       }
  }
