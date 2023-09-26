@@ -13,9 +13,6 @@ pipeline {
             }
         }
         stage('continuous integration') { // Compile and do unit testing
-             tools {
-               Gradle 'installGradle'
-             }
              steps {
                  parallel (
                  // run Gradle to execute compile and unit testing
