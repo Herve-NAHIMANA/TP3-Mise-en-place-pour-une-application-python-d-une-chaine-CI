@@ -17,10 +17,10 @@ pipeline {
                  parallel (
                  // run Gradle to execute compile and unit testing
                     pylint: {
-                        sh 'gradle lint'
+                        sh 'Gradle lint'
                     },
                     pycode: {
-                        sh 'gradle pycode'
+                        sh 'Gradle pycode'
                     }
                 )
              }
