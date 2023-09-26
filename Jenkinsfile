@@ -1,10 +1,10 @@
 pipeline {
-
+/*
       environment {
         imagename = "nahimana/my-image-python"
         registryCredential = 'docker'
       }
-
+*/
       agent any
       stages {
         stage('Clone sources') {
