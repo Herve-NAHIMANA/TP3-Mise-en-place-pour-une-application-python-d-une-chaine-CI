@@ -15,43 +15,6 @@ services:
                 /usr/local/bin/jenkins.sh"
     networks: 
       - tp_network
-  #------------- Debut ---------#
-  gitlab:
-    image: 'gitlab/gitlab-ce:latest'
-    user: root
-    container_name: gitlab
-    ports:
-      - '80:80'
-      - '443:443'
-    environment:
-      GITLAB_OMNIBUS_CONFIG: |
-        gitlab_rails['initial_root_password'] = "Test123@&"
-      POSTGRES_DB: test
-      POSTGRES_USER: test
-      POSTGRES_PASSWORD: Test
-      GITLAB_ROOT_PASSWORD: Test123@&
-    volumes:
-      - './srv/gitlab/config:/etc/gitlab'
-      - './srv/gitlab/logs:/var/log/gitlab'
-      - './srv/gitlab/data:/var/opt/gitlab'
-    restart: always
-    networks:
-      - tp_network
-    depends_on:
-      - postgres
-  postgres:
-    image: 'postgres:12'
-    container_name: gitlab-postgres
-    environment:
-      POSTGRES_PASSWORD: Test
-      POSTGRES_USER: test
-      POSTGRES_DB: test
-    volumes:
-      - '/srv/gitlab/postgres:/var/lib/postgresql/data'
-    restart: always
-    networks:
-      - tp_network
-  #------------Fin--------------#
 networks:
   tp_network:
     name: tp_network
