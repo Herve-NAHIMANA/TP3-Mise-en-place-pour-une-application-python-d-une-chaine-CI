@@ -14,7 +14,7 @@ pipeline {
         }
         stage('continuous integration') { // Compile and do unit testing
              steps {
-                sh 'cd python-api-handle-git'
+                sh 'cd ./app'
            }    
       }
  }
