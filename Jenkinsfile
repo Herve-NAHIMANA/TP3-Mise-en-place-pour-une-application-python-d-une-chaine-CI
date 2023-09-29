@@ -15,6 +15,7 @@ pipeline {
         stage('continuous integration') { // Compile and do unit testing
              steps {
                 sh 'cd ./app'
+                sh 'pip install pylint'
            }    
       }
  }
