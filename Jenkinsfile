@@ -15,6 +15,7 @@ pipeline {
         stage('continuous integration') { // Compile and do unit testing
              steps {
                 sh 'cd ./app'
+                sh 'apt update'
                 sh 'apt install python3'
                 sh 'apt install python3-pip'
                 sh 'pip install pylint'
