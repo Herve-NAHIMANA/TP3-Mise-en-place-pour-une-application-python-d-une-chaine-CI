@@ -17,7 +17,7 @@ pipeline {
                 sh 'cd ./app'
                 sh 'apt update'
                 sh 'apt install python3'
-                sh 'apt install python3-pip'
+                sh 'apt install -y python3-pip'
                 sh 'pip install pylint'
            }    
       }
