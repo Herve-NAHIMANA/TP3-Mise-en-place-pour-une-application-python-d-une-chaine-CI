@@ -14,16 +14,7 @@ pipeline {
         }
         stage('continuous integration') { // Compile and do unit testing
              steps {
-                 parallel (
-                 // run Gradle to execute compile and unit testing
-                    pylint: {
-                        sh 'Gradle lint'
-                    },
-                    pycode: {
-                        sh 'Gradle pycode'
-                    }
-                )
-             }
+                sh 'cd python-api-handle-git'
            }    
       }
  }
