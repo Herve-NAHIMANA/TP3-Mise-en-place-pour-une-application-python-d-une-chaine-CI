@@ -27,6 +27,8 @@ pipeline {
       }
       stage('linter'){
         steps {
+            sh 'mkdir /app/reports/'
+            sh 'mkdir /app/reports/pylint/'
             sh 'pylint /app/ > /app/reports/pylint/report.json'
             sh 'pylint-json2html -o /app/reports/pylint/report.html /app/reports/pylint/report.json'
         }
