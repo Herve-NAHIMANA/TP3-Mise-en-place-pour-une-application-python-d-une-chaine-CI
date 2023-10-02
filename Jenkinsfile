@@ -12,7 +12,7 @@ pipeline {
                 git url: 'https://github.com/vanessakovalsky/python-api-handle-it.git'
             }
         }
-        stage('continuous integration') { // Compile and do unit testing
+        stage('Prerequis') { // Compile and do unit testing
              steps {
                 sh 'cd ./app'
                 sh 'apt update'
@@ -23,7 +23,13 @@ pipeline {
                 sh '. venv/bin/activate'
                 sh 'pip install pylint --break-system-packages'
                 sh 'pip install pylint-json2html --break-system-packages'
-           }    
+           }
+      }
+      stage('linter'){
+        steps {
+            sh 'pylint /app/ > /app/reports/pylint/report.json'
+            sh 'pylint-json2html -o /app/reports/pylint/report.html /app/reports/pylint/report.json'
+        }
       }
  }
 }
