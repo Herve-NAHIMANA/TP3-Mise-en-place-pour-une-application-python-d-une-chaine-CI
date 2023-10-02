@@ -21,7 +21,7 @@ pipeline {
                 sh 'apt install -y python3.11-venv'
                 sh 'python3 -m venv venv'                  // Créer l'environnement virtuel
                 sh '. venv/bin/activate'
-                sh 'python3 -m pip install pylint'
+                sh 'pip install pylint --break-system-packages'
            }    
       }
  }
