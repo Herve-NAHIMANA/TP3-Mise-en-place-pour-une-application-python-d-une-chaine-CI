@@ -22,6 +22,7 @@ pipeline {
                 sh 'python3 -m venv venv'                  // Créer l'environnement virtuel
                 sh '. venv/bin/activate'
                 sh 'pip install pylint --break-system-packages'
+                sh 'pip install pylint-json2html --break-system-packages'
            }    
       }
  }
