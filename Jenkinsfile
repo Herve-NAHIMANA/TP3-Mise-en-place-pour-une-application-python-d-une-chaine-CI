@@ -27,6 +27,7 @@ pipeline {
                 sh 'pip install robotframework --break-system-packages'
                 sh 'pip install robotframework-requests --break-system-packages'
                 sh 'pip install json2tree --break-system-packages'
+                sh 'pip install html-testRunner --break-system-packages'
            }
       }
       stage('Verification des copier-coller'){
