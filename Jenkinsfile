@@ -44,7 +44,7 @@ pipeline {
       }
       stage('test unitaire'){
         steps{
-          sh 'python -m unittest ./app/test/unit/test.py'
+          sh 'python3 -m unittest ./app/test/unit/test.py'
         }
       }
       stage('linter'){
