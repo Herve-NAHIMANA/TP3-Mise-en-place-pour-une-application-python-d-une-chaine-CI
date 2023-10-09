@@ -41,7 +41,7 @@ pipeline {
         steps {
             /* sh 'mkdir ./app/reports' */
             /* sh 'mkdir ./app/reports/pylint' */
-            sh 'radon cc -j ./ > reports/cc/report.json; json2tree -j reports/cc/report.json -o reports/cc/report.html -t 1'
+            sh 'radon cc -j ./app/ > reports/cc/report.json; json2tree -j reports/cc/report.json -o reports/cc/report.html -t 1'
             /* sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json' */
         }
       }
