@@ -36,5 +36,13 @@ pipeline {
             /* sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json' */
         }
       }
+      stage('Verification des copier-coller'){
+        steps {
+            /* sh 'mkdir ./app/reports' */
+            /* sh 'mkdir ./app/reports/pylint' */
+            sh 'radon cc ./app/'
+            /* sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json' */
+        }
+      }
  }
 }
