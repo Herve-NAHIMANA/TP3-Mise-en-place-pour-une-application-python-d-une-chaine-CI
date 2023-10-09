@@ -42,6 +42,11 @@ pipeline {
           sh 'radon raw ./app/'
         }
       }
+      stage('test unitaire'){
+        steps{
+          sh 'python -m unittest ./app/test/unit/test.py'
+        }
+      }
       stage('linter'){
         steps {
             /* sh 'mkdir ./app/reports' */
