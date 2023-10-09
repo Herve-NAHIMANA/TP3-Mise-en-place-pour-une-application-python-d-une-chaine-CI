@@ -37,6 +37,11 @@ pipeline {
             /* sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json' */
         }
       }
+      stage('Analyse de la complexité cyclomatique'){
+        steps {
+          sh 'radon raw ./app/'
+        }
+      }
       stage('linter'){
         steps {
             /* sh 'mkdir ./app/reports' */
