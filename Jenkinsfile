@@ -23,6 +23,9 @@ pipeline {
                 sh '. venv/bin/activate'
                 sh 'pip install pylint --break-system-packages'
                 sh 'pip install pylint-json2html --break-system-packages'
+                sh 'pip install radon --break-system-packages'
+                sh 'pip install robotframework --break-system-packages'
+                sh 'pip install robotframework-requests --break-system-packages'
            }
       }
       stage('linter'){
