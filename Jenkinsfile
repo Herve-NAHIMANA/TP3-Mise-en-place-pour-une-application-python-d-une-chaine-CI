@@ -26,6 +26,7 @@ pipeline {
                 sh 'pip install radon --break-system-packages'
                 sh 'pip install robotframework --break-system-packages'
                 sh 'pip install robotframework-requests --break-system-packages'
+                sh 'pip install json2tree --break-system-packages'
            }
       }
       stage('linter'){
@@ -40,7 +41,7 @@ pipeline {
         steps {
             /* sh 'mkdir ./app/reports' */
             /* sh 'mkdir ./app/reports/pylint' */
-            sh 'radon cc ./app/'
+            sh 'radon cc -j ./ > reports/cc/report.json; json2tree -j reports/cc/report.json -o reports/cc/report.html -t 1'
             /* sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json' */
         }
       }
