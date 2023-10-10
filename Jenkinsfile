@@ -30,8 +30,8 @@ pipeline {
       }
       stage('linter'){
         steps {
-            //sh 'mkdir ./app/reports/'
-            //sh 'mkdir ./app/reports/pylint'
+            sh ' if [ ! -d "./app/reports" ]; then mkdir ./app/reports/; fi'
+            sh 'if [ ! -d "./app/reports/pylint" ]; then  mkdir ./app/reports/pylint'
             sh 'pylint ./app/ --output-format=json:./app/reports/pylint/report.json || exit 0'
             sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json'
         }
@@ -39,7 +39,7 @@ pipeline {
       stage('Verification des copier-coller'){
         steps {
             sh 'if [ ! -d "./app/reports/raw" ]; then mkdir ./app/reports/raw/ ; fi'
-            sh 'radon raw -j ./app/ > ./app/reports/raw/report.json'
+            sh 'radon raw  ./app/ --output-format=json:./app/reports/raw/report.json'
             sh 'json2tree -j ./app/reports/raw/report.json ./app/reports/raw/report.html'
         }
       }
