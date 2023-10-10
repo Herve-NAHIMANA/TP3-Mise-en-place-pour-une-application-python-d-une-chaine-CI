@@ -24,8 +24,6 @@ pipeline {
                 sh 'pip install pylint --break-system-packages'
                 sh 'pip install pylint-json2html --break-system-packages'
                 sh 'pip install radon --break-system-packages'
-                sh 'pip install robotframework --break-system-packages'
-                sh 'pip install robotframework-requests --break-system-packages'
                 sh 'pip install json2tree --break-system-packages'
                 sh 'pip install html-testRunner --break-system-packages'
            }
@@ -35,7 +33,7 @@ pipeline {
             //sh 'mkdir ./app/reports/'
             //sh 'mkdir ./app/reports/pylint'
             sh 'pylint ./app/ > ./app/reports/pylint/report.json || exit 0'
-            sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json'
+            sh 'pylint-json2html ./app/reports/pylint/report.json > ./app/reports/pylint/report.html'
         }
       }
       stage('Verification des copier-coller'){
