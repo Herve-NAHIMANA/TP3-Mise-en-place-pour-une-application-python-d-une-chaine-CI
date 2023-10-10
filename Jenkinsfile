@@ -47,7 +47,7 @@ pipeline {
         steps {
           sh 'if [ ! -d "./app/reports/cc" ]; then mkdir ./app/reports/cc/ ; fi'
           sh 'radon cc -j ./app/ > ./app/reports/cc/report.json'
-          sh 'json2tree -j reports/cc/report.json -o reports/cc/report.html -t 1'
+          sh 'json2tree -j ./app/reports/cc/report.json -o ./app/reports/cc/report.html -t 1'
         }
       }
       stage('Test unitaire'){
@@ -57,7 +57,7 @@ pipeline {
       }
       stage('Build Images'){
         steps{
-          sh " echo build images docker de l'app"
+          sh 'echo build images docker'
         }
       }
  }
