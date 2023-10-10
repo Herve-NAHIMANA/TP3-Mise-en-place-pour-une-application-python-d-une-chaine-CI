@@ -38,7 +38,7 @@ pipeline {
       }
       stage('Verification des copier-coller'){
         steps {
-            sh 'mkdir ./app/reports/radon/'
+            //sh 'mkdir ./app/reports/radon/'
             sh 'radon raw -j ./app/  ./app/reports/radon/report.html'
             sh 'pylint-json2html -o ./app/reports/radon/report.html ./app/reports/radon/report.json'
         }
