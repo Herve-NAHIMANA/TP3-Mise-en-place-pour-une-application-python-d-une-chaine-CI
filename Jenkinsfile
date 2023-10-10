@@ -32,9 +32,8 @@ pipeline {
         steps {
             //sh 'mkdir ./app/reports/'
             //sh 'mkdir ./app/reports/pylint'
-            sh 'pylint ./app/ > ./app/reports/pylint/report.json || exit 0'
-            //sh 'sleep 5'
-            //sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json'
+            sh 'pylint ./app/ --output-format=json:./app/reports/pylint/report.json || exit 0'
+            sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json'
         }
       }
       stage('Verification des copier-coller'){
