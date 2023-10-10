@@ -39,13 +39,15 @@ pipeline {
       stage('Verification des copier-coller'){
         steps {
             sh 'if [ ! -d "./app/reports/raw" ]; then mkdir ./app/reports/raw/ ; fi'
-            sh 'radon raw  --json ./app/ > ./app/reports/raw/report.json'
+            sh 'radon raw  -j ./app/ > ./app/reports/raw/report.json'
             sh 'json2tree -j ./app/reports/raw/report.json -o ./app/reports/raw/report.html'
         }
       }
       stage('Analyse de la complexité cyclomatique'){
         steps {
-          sh 'radon cc ./app/'
+          sh 'if [ ! -d "./app/reports/cc" ]; then mkdir ./app/reports/cc/ ; fi'
+          sh 'radon cc -j ./app/ > ./app/reports/cc/report.json'
+          sh 'json2tree -j reports/cc/report.json -o reports/cc/report.html -t 1'
         }
       }
       stage('Test unitaire'){
