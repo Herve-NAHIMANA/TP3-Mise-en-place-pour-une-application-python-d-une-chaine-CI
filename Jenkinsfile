@@ -30,31 +30,34 @@ pipeline {
                 sh 'pip install html-testRunner --break-system-packages'
            }
       }
+      stage('linter'){
+        steps {
+            sh 'mkdir ./app/reports/'
+            sh 'mkdir ./app/reports/pylint'
+            sh 'pylint ./app/ || exit 0'
+            sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json'
+        }
+      }
       stage('Verification des copier-coller'){
         steps {
             /* sh 'mkdir ./app/reports' */
             /* sh 'mkdir ./app/reports/pylint' */
-            sh 'radon cc ./app/'
+            sh 'radon raw ./app/'
             /* sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json' */
         }
       }
       stage('Analyse de la complexité cyclomatique'){
         steps {
-          sh 'radon raw ./app/'
+          sh 'radon cc ./app/'
         }
       }
-      stage('test unitaire'){
+      stage('Test unitaire'){
         steps{
           sh 'python3 -m unittest ./app/test/unit/test.py || exit 0'
         }
       }
-      stage('linter'){
-        steps {
-            /* sh 'mkdir ./app/reports' */
-            /* sh 'mkdir ./app/reports/pylint' */
-            sh 'pylint ./app/ || exit 0'
-            /* sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json' */
-        }
+      stage('Build Images'){
+
       }
  }
 }
