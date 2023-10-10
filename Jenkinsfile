@@ -40,7 +40,7 @@ pipeline {
         steps {
             sh 'if [ ! -d "./app/reports/raw" ]; then mkdir ./app/reports/raw/ ; fi'
             sh 'radon raw  --json ./app/ > ./app/reports/raw/report.json'
-            sh 'json2tree ./app/reports/raw/report.json ./app/reports/raw/report.html'
+            sh 'json2tree -j ./app/reports/raw/report.json ./app/reports/raw/report.html'
         }
       }
       stage('Analyse de la complexité cyclomatique'){
