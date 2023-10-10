@@ -41,7 +41,7 @@ pipeline {
 
             sh 'if [ ! -d "raw" ]; then mkdir ./app/reports/raw/ ; fi'
             sh 'radon raw -j ./app/ > ./app/reports/raw/report.json'
-            sh 'json2tree -j ./app/reports/rraw/report.json ./app/reports/raw/report.html'
+            sh 'json2tree -j ./app/reports/raw/report.json ./app/reports/raw/report.html'
         }
       }
       stage('Analyse de la complexité cyclomatique'){
@@ -56,7 +56,7 @@ pipeline {
       }
       stage('Build Images'){
         steps{
-          sh 'echo build images docker de l\'app'
+          sh " echo build images docker de l'app"
         }
       }
  }
