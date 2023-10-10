@@ -38,8 +38,7 @@ pipeline {
       }
       stage('Verification des copier-coller'){
         steps {
-
-            sh 'if [ ! -d "raw" ]; then mkdir ./app/reports/raw/ ; fi'
+            sh 'if [ ! -d "./app/reports/raw" ]; then mkdir ./app/reports/raw/ ; fi'
             sh 'radon raw -j ./app/ > ./app/reports/raw/report.json'
             sh 'json2tree -j ./app/reports/raw/report.json ./app/reports/raw/report.html'
         }
