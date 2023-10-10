@@ -33,7 +33,7 @@ pipeline {
             //sh 'mkdir ./app/reports/'
             //sh 'mkdir ./app/reports/pylint'
             sh 'pylint ./app/ > ./app/reports/pylint/report.json || exit 0'
-            sh 'pylint-json2html ./app/reports/pylint/report.json > ./app/reports/pylint/report.html'
+            sh "pylint-json2html './app/reports/pylint/report.json' > './app/reports/pylint/report.html'"
         }
       }
       stage('Verification des copier-coller'){
