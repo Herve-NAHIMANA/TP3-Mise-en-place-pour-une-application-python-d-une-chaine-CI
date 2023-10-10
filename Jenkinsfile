@@ -33,16 +33,16 @@ pipeline {
             //sh 'mkdir ./app/reports/'
             //sh 'mkdir ./app/reports/pylint'
             sh 'pylint ./app/ > ./app/reports/pylint/report.json || exit 0'
-            sh 'sleep 5'
-            sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json'
+            //sh 'sleep 5'
+            //sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json'
         }
       }
       stage('Verification des copier-coller'){
         steps {
             /* sh 'mkdir ./app/reports' */
             /* sh 'mkdir ./app/reports/pylint' */
-            sh 'radon raw ./app/'
-            /* sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json' */
+            sh 'radon raw ./app/ > ./app/reports/pylint/report.html'
+            //sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json'
         }
       }
       stage('Analyse de la complexité cyclomatique'){
