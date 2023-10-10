@@ -56,7 +56,7 @@ pipeline {
       }
       stage('Build Images'){
         steps{
-          sh 'echo build images docker de l\'app'
+          sh ' echo build images docker de l\'app'
         }
       }
  }
