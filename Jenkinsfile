@@ -38,9 +38,10 @@ pipeline {
       }
       stage('Verification des copier-coller'){
         steps {
-            //sh 'mkdir ./app/reports/radon/'
-            sh 'radon raw -j ./app/ > ./app/reports/radon/report.json'
-            sh 'pylint-json2html -o ./app/reports/radon/report.html ./app/reports/radon/report.json'
+
+            sh 'if [ ! -d "raw"]; then mkdir ./app/reports/raw fi'
+            sh 'radon raw -j ./app/ > ./app/reports/raw/report.json'
+            sh 'json2tree -j ./app/reports/raw/report.html ./app/reports/raw/report.json'
         }
       }
       stage('Analyse de la complexité cyclomatique'){
