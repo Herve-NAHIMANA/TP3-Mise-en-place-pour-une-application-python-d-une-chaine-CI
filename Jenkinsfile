@@ -26,11 +26,11 @@ pipeline {
                 sh 'pip install radon --break-system-packages'
                 sh 'pip install json2tree --break-system-packages'
                 sh 'pip install html-testRunner --break-system-packages'
+                sh ' if [ ! -d "./app/reports" ]; then mkdir ./app/reports/; fi'
            }
       }
       stage('linter'){
         steps {
-            sh ' if [ ! -d "./app/reports" ]; then mkdir ./app/reports/; fi'
             sh 'if [ ! -d "./app/reports/pylint" ]; then  mkdir ./app/reports/pylint; fi'
             sh 'pylint ./app/ --output-format=json:./app/reports/pylint/report.json || exit 0'
             sh 'pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json'
@@ -57,7 +57,8 @@ pipeline {
       }
       stage('Build Images'){
         steps{
-          sh 'echo build images docker'
+          sh 'docker build -t my-image-python ./app/docker-app/python/'
+          sh 'docker tag my-image-python herve/my-image-python:latest'
         }
       }
  }
