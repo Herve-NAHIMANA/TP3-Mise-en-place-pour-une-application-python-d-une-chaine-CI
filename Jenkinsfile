@@ -59,9 +59,15 @@ pipeline {
         }
       }
       stage('Build Images'){
+        agent {
+          label 'docker'
+        }
         steps{
           script {
-                    dockerImage = docker.build("herve/mypythonapp:latest", "-f docker-app/python/Dockerfile .")
+                    docker.image('docker:20.10.8').inside('-v /var/run/docker.sock:/var/run/docker.sock'){
+                    sh 'docker build -t herve/mypythonapp:latest -f docker-app/python/Dockerfile .'
+                    }
+                    //dockerImage = docker.build("herve/mypythonapp:latest", "-f docker-app/python/Dockerfile .")
                 }
           ////sh 'docker build -t my-image-python ./app/docker-app/python/'
           //sh 'docker tag my-image-python herve/my-image-python:latest'
