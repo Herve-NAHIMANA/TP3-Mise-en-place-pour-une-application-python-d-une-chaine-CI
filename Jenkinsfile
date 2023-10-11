@@ -63,9 +63,16 @@ pipeline {
           script {
                     dockerImage = docker.build("herve/mypythonapp:latest", "-f docker-app/python/Dockerfile .")
                 }
-          ////sh 'docker build -t my-image-python ./app/docker-app/python/'
-          //sh 'docker tag my-image-python herve/my-image-python:latest'
         }
+      }
+      stage('Push Images'){
+         steps {
+                script {
+                    withDockerRegistry([ credentialsId: "docker", url: "" ]) {
+                    dockerImage.push()
+                    }
+                }
+            }
       }
  }
 }
