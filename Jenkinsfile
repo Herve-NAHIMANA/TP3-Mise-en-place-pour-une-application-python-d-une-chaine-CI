@@ -7,16 +7,6 @@ pipeline {
 */
       agent none
       stages {
-        stage('Maven Insatll'){
-          agent {
-          docker {
-            image 'maven:3.5.0'
-          }
-        }
-        steps {
-      	sh 'mvn clean install'
-      }
-        }
         stage('Clone sources') {
             steps {
                 git url: 'https://github.com/vanessakovalsky/python-api-handle-it.git'
@@ -67,8 +57,11 @@ pipeline {
       }
       stage('Build Images'){
         steps{
-          sh 'docker build -t my-image-python ./app/docker-app/python/'
-          sh 'docker tag my-image-python herve/my-image-python:latest'
+          script {
+                    dockerImage = docker.build("herve/mypythonapp:latest", "-f docker-app/python/Dockerfile .")
+                }
+          ////sh 'docker build -t my-image-python ./app/docker-app/python/'
+          //sh 'docker tag my-image-python herve/my-image-python:latest'
         }
       }
  }
