@@ -5,8 +5,15 @@ pipeline {
         registryCredential = 'docker'
       }
 */
-      agent any
+      agent none
       stages {
+        stage('Maven Insatll'){
+          agent{
+          docker {
+            image 'maven:3.5.0'
+          }
+        }
+        }
         stage('Clone sources') {
             steps {
                 git url: 'https://github.com/vanessakovalsky/python-api-handle-it.git'
