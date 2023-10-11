@@ -19,6 +19,7 @@ pipeline {
                 sh 'apt install -y python3'
                 sh 'apt install -y python3-pip'
                 sh 'apt install -y python3.11-venv'
+                sh 'apt-get update && apt-get install -y docker.io'
                 sh 'python3 -m venv venv'                  // Créer l'environnement virtuel
                 sh '. venv/bin/activate'
                 sh 'pip install pylint --break-system-packages'
