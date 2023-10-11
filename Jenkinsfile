@@ -6,6 +6,9 @@ pipeline {
       }
 */
       agent any
+      options {
+        skipStagesAfterUnstable()
+    }
       stages {
         stage('Clone sources') {
             steps {
