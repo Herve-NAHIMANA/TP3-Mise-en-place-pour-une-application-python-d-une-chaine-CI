@@ -62,7 +62,7 @@ pipeline {
         steps{
           script {
                     //dockerImage = docker.build("herve/mypythonapp:latest", "-f docker-app/python/Dockerfile .")
-                    sh 'docker build -t herve/mypythonapp:latest docker-app/python/Dockerfile'
+                    sh 'docker build -t herve/mypythonapp:latest docker-app/python/'
                 }
         }
       }
