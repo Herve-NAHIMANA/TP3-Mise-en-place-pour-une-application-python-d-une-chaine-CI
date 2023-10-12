@@ -12,7 +12,7 @@ pipeline {
       stages {
         stage('Clone sources') {
             steps {
-                git url: 'https://github.com/vanessakovalsky/python-api-handle-it.git'
+                git url: 'https://github.com/Herve-NAHIMANA/TP3-Mise-en-place-pour-une-application-python-d-une-chaine-CI.git'
             }
         }
         stage('Prerequis') { // Compile and do unit testing
