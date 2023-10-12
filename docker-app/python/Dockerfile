@@ -1,6 +1,6 @@
 FROM python:3
 
-WORKDIR /workspace/test/app
+WORKDIR app
 
 COPY app/ .
 
