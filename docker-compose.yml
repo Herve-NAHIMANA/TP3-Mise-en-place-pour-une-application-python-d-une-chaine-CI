@@ -8,6 +8,7 @@ services:
       - 8080:8080
     volumes:
       - ./jenkins/plugins.txt:/usr/share/jenkins/ref/plugins.txt
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
     command: >
