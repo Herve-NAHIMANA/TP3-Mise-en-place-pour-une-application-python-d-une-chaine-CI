@@ -19,7 +19,7 @@ pipeline {
              steps {
                 sh 'cd ./app'
                 sh 'apt update'
-                sh 'apt install -y python3.8'
+                sh 'apt install -y python3'
                 sh 'apt install -y python3-pip'
                 //sh 'apt install -y python3.11-venv'
                 //sh 'python3 -m venv venv'                  // Créer l'environnement virtuel
