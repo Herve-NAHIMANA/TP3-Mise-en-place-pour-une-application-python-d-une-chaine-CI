@@ -8,6 +8,9 @@ pipeline {
       agent any
       options {
         skipStagesAfterUnstable()
+        environment {
+          DOCKER_ACCOUNT = credentials('docker')
+        }
     }
       stages {
         stage('Clone sources') {
@@ -66,6 +69,11 @@ pipeline {
                 }
         }
       }
+      stage('login'){
+        steps{
+          sh 'echo $DOCKER_ACCOUNT_PSW | docker login -u $DOCKER_ACCOUNT_USR --password-stdin'
+        }
+      }
       stage('Push Images'){
          steps {
                 script {
@@ -73,5 +81,10 @@ pipeline {
                 }
             }
       }
+ }
+ post {
+  always {
+    sh 'docker logout'
+  }
  }
 }
