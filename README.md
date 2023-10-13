@@ -24,4 +24,13 @@ Le dossier est constitué des dossiers et fichiers comme suit:
 ├── Jenkinsfile
 ├── README.md
 ```
-##### Il faut installer télécharge le fichier webhook-relay 
+##### Présentation du pipeline
+
+Les étapes du pipeline sont décritées dans le Jenkinsfile qui est disponible sur le dépôt, jenkins l'utilise pour executer les tâches suivantes:
+
+. Lancement du linter pylint
+. Verification des copiers-coller avec radon raw
+. Analyse de la Complexité Cyclomatique avec radon cc 
+. Lancement des tests unitaires
+. Builder l'image docker avec docker
+. Pusher l'image sur le docker hub
