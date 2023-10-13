@@ -78,7 +78,7 @@ pipeline {
       stage('Push Images'){
          steps {
                 script {
-                    sh 'docker push $imagename:latest"'
+                    sh 'docker push $imagename:latest'
                 }
             }
       }
