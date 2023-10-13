@@ -1,6 +1,6 @@
 FROM python:3
 
-WORKDIR {JENKINS_HOME}/workspace/test/app
+WORKDIR /{JENKINS_HOME}/workspace/test/
 
 COPY app/ .
 
