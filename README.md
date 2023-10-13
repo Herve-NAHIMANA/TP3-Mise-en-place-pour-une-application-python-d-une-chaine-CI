@@ -12,7 +12,7 @@ Le TP consiste à tester et à push l'image doxker sur docker hub, ils'agit de l
  - Lance le script sur linux et avoir docker installer dessus
 
 
-#### Composition du dépot
+### Composition du dépot
 
 Le dossier est constitué des dossiers et fichiers comme suit:
 
@@ -24,7 +24,7 @@ Le dossier est constitué des dossiers et fichiers comme suit:
 ├── Jenkinsfile
 ├── README.md
 ```
-##### Présentation du pipeline
+### Présentation du pipeline
 
 Les étapes du pipeline sont décritées dans le Jenkinsfile qui est disponible sur le dépôt, jenkins l'utilise pour executer les tâches suivantes:
 
