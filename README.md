@@ -24,17 +24,21 @@ Le dossier est constitué des dossiers et fichiers comme suit:
 ├── Jenkinsfile
 ├── README.md
 ```
+### Configuration de jnekins
+
 ### Présentation du pipeline
 
 Les étapes du pipeline sont décritées dans le Jenkinsfile qui est disponible sur le dépôt, jenkins l'utilise pour executer les tâches suivantes:
 
-1. Lancement du linter pylint
-2. Verification des copiers-coller avec radon raw
-3. Analyse de la Complexité Cyclomatique avec radon cc 
-4. Lancement des tests unitaires
-5. Builder l'image docker avec docker
-6. Connexion sur docker hub
-7. Pusher l'image sur le docker hub
-8. Déconnexion de docker hub
+1. Clone le code source
+2. Installe les paquets nécéssaire au lancement des tests
+3. Lance le linter pylint
+4. Verification des copiers-coller avec radon raw
+5. Analyse de la Complexité Cyclomatique avec radon cc 
+6. Lancement des tests unitaires
+7. Builder l'image docker avec docker
+8. Connexion sur docker hub
+9. Pusher l'image sur le docker hub
+10. Déconnexion de docker hub
 
 ![](imgs/stageview.PNG)
