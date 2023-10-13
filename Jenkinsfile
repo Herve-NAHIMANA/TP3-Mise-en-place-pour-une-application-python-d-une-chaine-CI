@@ -23,9 +23,10 @@ pipeline {
              steps {
                 sh 'cd ./app'
                 sh 'apt update'
-                sh 'apt install -y python3.9.10'
+                sh 'apt install -y python3'
                 sh 'apt install -y python3-pip'
-                sh 'apt install -y python3.9-venv'
+                sh 'apt install -y docker.io'
+                sh 'apt install -y python3.11-venv'
                 sh 'python3 -m venv venv'                  // Créer l'environnement virtuel
                 sh '. venv/bin/activate'
                 sh 'pip install pylint --break-system-packages'
