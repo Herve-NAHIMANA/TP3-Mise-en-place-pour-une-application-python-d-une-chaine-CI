@@ -28,9 +28,9 @@ Le dossier est constitué des dossiers et fichiers comme suit:
 
 Les étapes du pipeline sont décritées dans le Jenkinsfile qui est disponible sur le dépôt, jenkins l'utilise pour executer les tâches suivantes:
 
-. Lancement du linter pylint
-. Verification des copiers-coller avec radon raw
-. Analyse de la Complexité Cyclomatique avec radon cc 
-. Lancement des tests unitaires
-. Builder l'image docker avec docker
-. Pusher l'image sur le docker hub
+1. Lancement du linter pylint
+2. Verification des copiers-coller avec radon raw
+3. Analyse de la Complexité Cyclomatique avec radon cc 
+4. Lancement des tests unitaires
+5. Builder l'image docker avec docker
+6. Pusher l'image sur le docker hub
