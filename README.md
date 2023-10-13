@@ -33,4 +33,8 @@ Les étapes du pipeline sont décritées dans le Jenkinsfile qui est disponible 
 3. Analyse de la Complexité Cyclomatique avec radon cc 
 4. Lancement des tests unitaires
 5. Builder l'image docker avec docker
-6. Pusher l'image sur le docker hub
+6. Connexion sur docker hub
+7. Pusher l'image sur le docker hub
+8. Déconnexion de docker hub
+
+![](imgs/stageview.PNG)
