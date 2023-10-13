@@ -66,14 +66,14 @@ pipeline {
                 }
         }
       }
-      /*stage('Push Images'){
+      stage('Push Images'){
          steps {
                 script {
-                    withDockerRegistry([ credentialsId: "docker", url: "" ]) {
+                    withDockerRegistry([ credentialsId: "docker", url: "https://hub.docker.com/" ]) {
                     dockerImage.push()
                     }
                 }
             }
-      }*/
+      }
  }
 }
