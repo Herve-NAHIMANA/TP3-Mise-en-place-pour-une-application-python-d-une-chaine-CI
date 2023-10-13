@@ -1,8 +1,8 @@
 FROM python:3
 
-WORKDIR ../../app/.
+WORKDIR {JENKINS_HOME}/workspace/test/app
 
-COPY ./ .
+COPY app/ .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
