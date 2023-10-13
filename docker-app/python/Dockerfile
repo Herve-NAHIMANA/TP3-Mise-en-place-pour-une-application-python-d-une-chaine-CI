@@ -1,6 +1,6 @@
 FROM python:3
 
-WORKDIR /var/jenkins_home/test/app
+WORKDIR /var/jenkins_home/test
 
 COPY app/  .
 
