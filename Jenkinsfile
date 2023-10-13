@@ -11,7 +11,7 @@ pipeline {
     }
     environment {
           DOCKER_ACCOUNT = credentials('docker')
-          imagename = "herve/my-image-python"
+          imagename = "hizzo/my-image-python"
         }
       stages {
         stage('Clone sources') {
@@ -72,7 +72,7 @@ pipeline {
       }
       stage('login'){
         steps{
-          sh 'echo $DOCKER_ACCOUNT_PSW | docker login -u $DOCKER_ACCOUNT_USR --password-stdin docker.io'
+          sh 'echo $DOCKER_ACCOUNT_PSW | docker login -u $DOCKER_ACCOUNT_USR --password-stdin'
         }
       }
       stage('Push Images'){
