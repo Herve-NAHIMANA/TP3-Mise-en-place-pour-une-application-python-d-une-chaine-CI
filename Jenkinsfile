@@ -11,6 +11,7 @@ pipeline {
     }
     environment {
           DOCKER_ACCOUNT = credentials('docker')
+          imagename = "herve/my-image-python"
         }
       stages {
         stage('Clone sources') {
@@ -65,7 +66,7 @@ pipeline {
         steps{
           script {
                     //dockerImage = docker.build("herve/mypythonapp:latest", "-f docker-app/python/Dockerfile .")
-                    sh 'docker build --no-cache -t herve/mypythonapp:latest ./app/'
+                    sh 'docker build --no-cache -t $imagename:latest ./app/'
                 }
         }
       }
@@ -77,7 +78,7 @@ pipeline {
       stage('Push Images'){
          steps {
                 script {
-                    sh 'docker push credentialsId: "docker", url: "https://hub.docker.com/"'
+                    sh 'docker push $imagename:latest"'
                 }
             }
       }
