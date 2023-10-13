@@ -2,7 +2,7 @@
 
 ### Objectif
 
-Le TP consiste à tester et à push l'image doxker sur docker hub, ils'agit de l'intégration continue(CI) avec jenkins.
+Le TP consiste à mettre en oeuvre une chaîne d'intégration continue pour les applications python.
 
 
 ### Prérequis
