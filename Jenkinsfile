@@ -62,7 +62,8 @@ pipeline {
         steps{
           script {
                     //dockerImage = docker.build("herve/mypythonapp:latest", "-f docker-app/python/Dockerfile .")
-                    sh 'docker build --no-cache -t herve/mypythonapp:latest ./app/'
+                    //sh 'docker build --no-cache -t herve/mypythonapp:latest ./app/'
+                    dockerImage = docker.build("herve/mypythonapp:latest", "-f ./app/Dockerfile .")
                 }
         }
       }
