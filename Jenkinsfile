@@ -72,7 +72,7 @@ pipeline {
       }
       stage('login'){
         steps{
-          sh 'echo $DOCKER_ACCOUNT_PSW | docker login -u $DOCKER_ACCOUNT_USR --password-stdin'
+          sh 'echo $DOCKER_ACCOUNT_PSW | docker login -u $DOCKER_ACCOUNT_USR --password-stdin docker.io'
         }
       }
       stage('Push Images'){
