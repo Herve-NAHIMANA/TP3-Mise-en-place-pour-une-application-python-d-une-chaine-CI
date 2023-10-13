@@ -8,10 +8,10 @@ pipeline {
       agent any
       options {
         skipStagesAfterUnstable()
-        environment {
+    }
+    environment {
           DOCKER_ACCOUNT = credentials('docker')
         }
-    }
       stages {
         stage('Clone sources') {
             steps {
