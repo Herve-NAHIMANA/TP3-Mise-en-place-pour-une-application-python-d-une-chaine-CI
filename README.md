@@ -24,8 +24,9 @@ Le dossier est constitué des dossiers et fichiers comme suit:
 ├── Jenkinsfile
 ├── README.md
 ```
-### Configuration de jnekins
+### Configuration du repo et de jnekins
 
+#### Configuration du repo
 1. Cloner le repo
 
 `git clone https://github.com/Herve-NAHIMANA/TP3-Mise-en-place-pour-une-application-python-d-une-chaine-CI.git`
@@ -48,6 +49,18 @@ Le dossier est constitué des dossiers et fichiers comme suit:
 7. Push l'image sur le nouveau repo
 
 `git push origin <nom de la branche>`
+
+#### Configuration de jenkins
+
+1. Dans le terminal, se positionner dans le dossier clone, et executer la commande docker compose
+
+`docker compose up -d`
+
+2. ouvrir le navigateur et se connecter à `localhost:8080` ou `votre-ip:8080`
+
+3. Quand Jenkins n'est pas encore prêt mais qu'il est correctement créé, on aura un écran qui nous invite à patienter
+
+![](imgs/waiting.PNG)
 
 ### Présentation du pipeline
 
