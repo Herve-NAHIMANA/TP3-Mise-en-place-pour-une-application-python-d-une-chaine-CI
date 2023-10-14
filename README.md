@@ -74,7 +74,8 @@ Le dossier est constitué des dossiers et fichiers comme suit:
 
 ![](imgs/avecsecurit%C3%A9.PNG)
 
-
+>[!WARNING]
+>Il faut décocher la case `Autoriser les utilisateurs à s'inscrire`
 ### Présentation du pipeline
 
 Les étapes du pipeline sont décritées dans le Jenkinsfile qui est disponible sur le dépôt, jenkins l'utilise pour executer les tâches suivantes:
