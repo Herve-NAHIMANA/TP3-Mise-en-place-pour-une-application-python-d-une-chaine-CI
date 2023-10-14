@@ -76,6 +76,11 @@ Le dossier est constitué des dossiers et fichiers comme suit:
 
 >[!WARNING]
 >Il faut décocher la case `Autoriser les utilisateurs à s'inscrire`
+
+7. Une fois enregistré la configuration, vous aurez la page de création du premier compte utilisateur
+
+![](imgs/createnewuser.PNG)
+
 ### Présentation du pipeline
 
 Les étapes du pipeline sont décritées dans le Jenkinsfile qui est disponible sur le dépôt, jenkins l'utilise pour executer les tâches suivantes:
