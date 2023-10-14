@@ -62,10 +62,13 @@ Le dossier est constitué des dossiers et fichiers comme suit:
 
 ![](imgs/waiting.PNG)
 
-4. Une fois prêt, vous aurez l'écran de jenkins sans aucun compte créer, il faut créer un compte pour sécuriser jenkins.
+4. Une fois prêt, vous aurez l'écran de jenkins sans aucun compte créé, il faut créer un compte pour sécuriser jenkins.
 
 ![](imgs/no_account.PNG)
 
+5. Pour configurer jenkins, il faut aller dans `Administrer Jenkins` > `Security`
+
+![](imgs/sanssecurit%C3%A9.PNG)
 ### Présentation du pipeline
 
 Les étapes du pipeline sont décritées dans le Jenkinsfile qui est disponible sur le dépôt, jenkins l'utilise pour executer les tâches suivantes:
