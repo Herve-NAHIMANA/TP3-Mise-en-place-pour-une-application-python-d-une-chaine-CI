@@ -69,6 +69,12 @@ Le dossier est constitué des dossiers et fichiers comme suit:
 5. Pour configurer jenkins, il faut aller dans `Administrer Jenkins` > `Security`
 
 ![](imgs/sanssecurit%C3%A9.PNG)
+
+6. Il faut choisir royaume pour la sécurité et les autorisations.
+
+![](imgs/avecsecurit%C3%A9.PNG)
+
+
 ### Présentation du pipeline
 
 Les étapes du pipeline sont décritées dans le Jenkinsfile qui est disponible sur le dépôt, jenkins l'utilise pour executer les tâches suivantes:
