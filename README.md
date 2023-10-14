@@ -43,24 +43,28 @@ Le dossier est constitué des dossiers et fichiers comme suit:
 
 6. Ajouter au repo et créer un commit
 
-`git add .`
-`git commit -m "<Texte au choix>"`
+      `git add .`
+      `git commit -m "<Texte au choix>"`
 
 7. Push l'image sur le nouveau repo
 
-`git push origin <nom de la branche>`
+    `git push origin <nom de la branche>`
 
 #### Configuration de jenkins
 
 1. Dans le terminal, se positionner dans le dossier clone, et executer la commande docker compose
 
-`docker compose up -d`
+    `docker compose up -d`
 
 2. ouvrir le navigateur et se connecter à `localhost:8080` ou `votre-ip:8080`
 
-3. Quand Jenkins n'est pas encore prêt mais qu'il est correctement créé, on aura un écran qui nous invite à patienter
+3. Quand Jenkins n'est pas encore prêt mais qu'il est correctement créé, on aura un écran vous invitant à patienter
 
 ![](imgs/waiting.PNG)
+
+4. Une fois prêt, vous aurez l'écran de jenkins sans aucun compte créer, il faut créer un compte pour sécuriser jenkins.
+
+![](imgs/no_account.PNG)
 
 ### Présentation du pipeline
 
